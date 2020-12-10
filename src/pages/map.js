@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import QuestionDialog from '../components/QuestionDialog';
 import { QuestionsContext } from '../contexts/Questions';
 import { Redirect } from 'react-router-dom';
+import books from '../assets/images/books.svg'
 
 export default function MapPage() {
 
@@ -14,10 +15,10 @@ export default function MapPage() {
     };
 
     return (
-        <div>
-            <div className="map-container" style={{ textAlign: 'center' }}>
+        <div className="vh-100">
+            <div className="map-container pv4" style={{ textAlign: 'center' }}>
                 <svg xmlns="http://www.w3.org/2000/svg"
-                    style={{ height: '100vh' }}
+                    style={{ width: '90%', maxWidth: "1800px", maxHeight: "90vh" }}
                     // width="1526"
                     // height="971.468"
                     viewBox="0 0 1526 971.468">
@@ -185,6 +186,10 @@ export default function MapPage() {
                     :
                     <Redirect to="/complete" />
             }
+
+            <div className="absolute bottom-0">
+                <img src={books} style={{maxHeight: "350px"}} alt=""/>
+            </div>
 
         </div>
     )

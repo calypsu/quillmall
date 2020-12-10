@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import '../node_modules/tachyons/css/tachyons.css'
 
 import IndexPage from './pages';
 import MapPage from './pages/map';
