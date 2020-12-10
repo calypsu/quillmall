@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { QuestionsContext } from '../contexts/Questions';
 import { check_answer } from '../utils';
 
@@ -9,8 +9,28 @@ export default function QuestionDialog(props) {
 
     const { show } = props;
 
-    const [selectedAnswer, setSelectedAnswer] = useState(-1);
     const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+    const [timer, setTimer] = useState(2);
+
+    useEffect(() => {
+        if (showCorrectAnswer) {
+            const next = () => {
+                setTimer(2);
+                const result = changeQuestion();
+                setShowCorrectAnswer(false);
+                setSelectedAnswer(-1);
+                if (result && result.error) alert(result.error);
+            };
+            setTimeout(next, 2000);
+        }
+    }, [showCorrectAnswer]);
+
+    useEffect(() => {
+        if (timer > 0 && showCorrectAnswer) setTimeout(() => {
+            console.log(timer - 1);
+            setTimer(timer - 1);
+        }, 1000);
+    }, [timer]);
 
     if (currentQuestion && show && !completed) {
         let question = currentQuestion.question;
@@ -19,7 +39,7 @@ export default function QuestionDialog(props) {
         return (
             <div className="absolute top-0 right-0" style={{
                 height: '100vh',
-                background: '#eee',
+                background: 'rgba(0,0,0,0.3)',
                 width: '50vw'
             }}>
                 <div className="question">
@@ -27,33 +47,27 @@ export default function QuestionDialog(props) {
                     <ul>
                         {currentQuestion.options.map((option, index) => (
                             <li className="option" key={index}>
-                                <button {...(!showCorrectAnswer ? {
-                                    onClick: () => setSelectedAnswer(index),
-                                    // SET CLASSNAME FOR SELECTED HERE
-                                    className: selectedAnswer == index ? 'selected': ''
+                                <button { ...(!showCorrectAnswer ? {
+                                    onClick: () => {
+                                        setCurrentQuestion({
+                                            ...currentQuestion,
+                                            answer: index
+                                        })
+                                        setShowCorrectAnswer(true)
+                                    }
                                 } : {
                                     // SET CLASSNAME FOR RIGHT OR WRONG HERE
                                     className: check_answer(currentQuestion, index) ? 'correct' : 'wrong'
-                                })}>
+                                }) }>
                                     {option}
                                 </button>
                             </li>
                         ))}
                     </ul>
                     {!showCorrectAnswer ?
-                        <button onClick={() => {
-                            setCurrentQuestion({
-                                ...currentQuestion,
-                                answer: selectedAnswer
-                            })
-                            setShowCorrectAnswer(true)
-                        }}>Submit</button>
+                        ''
                         :
-                        <button onClick={() => {
-                            const result = changeQuestion();
-                            setShowCorrectAnswer(false);
-                            if (result && result.error) alert(result.error);
-                        }}>Next</button>
+                        <span>Next question in {timer} seconds</span>
                     }
                 </div>
             </div>

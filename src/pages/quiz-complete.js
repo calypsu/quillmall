@@ -7,9 +7,10 @@ export default function QuizCompletePage() {
 
     if (!completed) return <Redirect to="/" />;
     return (
-        <div className="score">
-            <div>Your score: {score}</div>
-            <div>Share</div>
+        <div className="w-container">
+            <form>
+                
+            </form>
         </div>        
     )
 }

@@ -1,25 +1,55 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import QuestionDialog from '../components/QuestionDialog';
 import { QuestionsContext } from '../contexts/Questions';
 import { Redirect } from 'react-router-dom';
 
 export default function MapPage() {
 
-    const { countries, completed } = useContext(QuestionsContext);
-    
-    const [started, setStarted] = useState(false);
+    const { completed, currentCountry, setNewQuestion, resetQuestionsContext } = useContext(QuestionsContext);
 
-    const handleCountry = e => {
-        setStarted(true);
-    };
+    const [started, setStarted] = useState(false);
+    const [countryPointers, setCountryPointers] = useState(null);
+    const [modelPosition, setModelPosition] = useState([0, 0]);
+
+    const handleInitialCountryClick = e => {
+        if (!started) {
+            const country = e.target.getAttribute('data-country');
+            setNewQuestion(country);
+            setStarted(true);
+        }
+    }
+
+    useEffect(() => {
+        let country_pointers = [];
+        const rects = document.getElementsByTagName('rect');
+        let i = 0;
+        while (rects[i]) {
+            const rect = rects[i];
+            const rect_country = rect.getAttribute('data-country');
+            if (rect_country && rect_country != '') country_pointers.push({ element: rect, country: rect_country });
+            i++;
+        }
+        setCountryPointers(country_pointers);
+
+        resetQuestionsContext();
+    }, []);
+
+    useEffect(() => {
+        if (countryPointers != null && currentCountry) {
+            const c_pointer = countryPointers.find(pointer => pointer.country == currentCountry.name);
+            if (c_pointer) {
+                const values = c_pointer.element.getBoundingClientRect();
+                    const { top, left } = values
+                    setModelPosition([left, top])
+            }
+        }
+    }, [currentCountry]);
 
     return (
-        <div>
-            <div className="map-container" style={{ textAlign: 'center' }}>
+        <div style={ started ? { display: 'grid', gridTemplateColumns: '1fr 1fr' } : {} }>
+            <div className="map-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
                 <svg xmlns="http://www.w3.org/2000/svg"
-                    style={{ height: '100vh' }}
-                    // width="1526"
-                    // height="971.468"
+                    style={{ width: '95%' }}
                     viewBox="0 0 1526 971.468">
                     <defs>
                         <clipPath id="clip-path">
@@ -101,80 +131,90 @@ export default function MapPage() {
                         </g>
                         </g>
                         <g id="Dots">
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object-2" data-name="Vector Smart Object" transform="translate(1101 619)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object-2" data-name="Vector Smart Object" transform="translate(1101 619)">
                             <g id="Group_15" data-name="Group 15">
                             <g id="Group_14" data-name="Group 14" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_8" data-name="Rectangle 8" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'sudan'} id="Rectangle_8" data-name="Rectangle 8" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_4" data-name="Vector Smart Object copy 4" transform="translate(1351 451)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_4" data-name="Vector Smart Object copy 4" transform="translate(1351 451)">
                             <g id="Group_17" data-name="Group 17">
                             <g id="Group_16" data-name="Group 16" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_9" data-name="Rectangle 9" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'saudi'} id="Rectangle_9" data-name="Rectangle 9" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_5" data-name="Vector Smart Object copy 5" transform="translate(1324 255)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_5" data-name="Vector Smart Object copy 5" transform="translate(1324 255)">
                             <g id="Group_19" data-name="Group 19">
                             <g id="Group_18" data-name="Group 18" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_10" data-name="Rectangle 10" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'iraq'} id="Rectangle_10" data-name="Rectangle 10" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_6" data-name="Vector Smart Object copy 6" transform="translate(1215.156 196.156)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_6" data-name="Vector Smart Object copy 6" transform="translate(1215.156 196.156)">
                             <g id="Group_21" data-name="Group 21">
                             <g id="Group_20" data-name="Group 20" clip-path="url(#clip-path-7)">
-                                <rect id="Rectangle_11" data-name="Rectangle 11" width="48.688" height="48.688" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'syria'} id="Rectangle_11" data-name="Rectangle 11" width="48.688" height="48.688" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_7" data-name="Vector Smart Object copy 7" transform="translate(1169 234)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_7" data-name="Vector Smart Object copy 7" transform="translate(1169 234)">
                             <g id="Group_23" data-name="Group 23">
                             <g id="Group_22" data-name="Group 22" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_12" data-name="Rectangle 12" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'lebanon'} id="Rectangle_12" data-name="Rectangle 12" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_9" data-name="Vector Smart Object copy 9" transform="translate(1429 340)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_9" data-name="Vector Smart Object copy 9" transform="translate(1429 340)">
                             <g id="Group_25" data-name="Group 25">
                             <g id="Group_24" data-name="Group 24" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_13" data-name="Rectangle 13" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'kuwait'} id="Rectangle_13" data-name="Rectangle 13" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_8" data-name="Vector Smart Object copy 8" transform="translate(1547 457)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_8" data-name="Vector Smart Object copy 8" transform="translate(1547 457)">
                             <g id="Group_27" data-name="Group 27">
                             <g id="Group_26" data-name="Group 26" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_14" data-name="Rectangle 14" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'uae'} id="Rectangle_14" data-name="Rectangle 14" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy" data-name="Vector Smart Object copy" transform="translate(558 363)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy" data-name="Vector Smart Object copy" transform="translate(558 363)">
                             <g id="Group_29" data-name="Group 29">
                             <g id="Group_28" data-name="Group 28" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_15" data-name="Rectangle 15" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'algeria'} id="Rectangle_15" data-name="Rectangle 15" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(693.787 244.787)">
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(693.787 244.787)">
                             <g id="Group_31" data-name="Group 31">
                             <g id="Group_30" data-name="Group 30" clip-path="url(#clip-path-12)">
-                                <rect id="Rectangle_16" data-name="Rectangle 16" width="31.426" height="31.426" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'tunisia'} id="Rectangle_16" data-name="Rectangle 16" width="31.426" height="31.426" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
-                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="91.065" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0">سوريا</tspan></text>
-                        <g className="clickable" onClick={e => handleCountry(e)} data-country={''} id="Vector_Smart_Object_copy_3" data-name="Vector Smart Object copy 3" transform="translate(1074 401)">
+
+                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="91.065" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.en_name : 'Choose a country'}</tspan></text>
+                        
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_3" data-name="Vector Smart Object copy 3" transform="translate(1074 401)">
                             <g id="Group_33" data-name="Group 33">
                             <g id="Group_32" data-name="Group 32" clip-path="url(#clip-path-4)">
-                                <rect id="Rectangle_17" data-name="Rectangle 17" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'egypt'} id="Rectangle_17" data-name="Rectangle 17" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
                         </g>
                     </g>
                 </svg>
+            </div>
+            <div className="model-container" style={{
+                position: 'absolute',
+                transition: '0.2s',
+                left: modelPosition[0] + "px",
+                top: modelPosition[1] + "px",
+            }}>
+                <img src={require('./../assets/images/shekh.svg').default} />
             </div>
 
             {!started ?
