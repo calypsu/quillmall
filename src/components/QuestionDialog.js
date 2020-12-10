@@ -18,7 +18,6 @@ export default function QuestionDialog(props) {
                 setTimer(2);
                 const result = changeQuestion();
                 setShowCorrectAnswer(false);
-                setSelectedAnswer(-1);
                 if (result && result.error) alert(result.error);
             };
             setTimeout(next, 2000);
@@ -27,10 +26,9 @@ export default function QuestionDialog(props) {
 
     useEffect(() => {
         if (timer > 0 && showCorrectAnswer) setTimeout(() => {
-            console.log(timer - 1);
             setTimer(timer - 1);
         }, 1000);
-    }, [timer]);
+    }, [timer, showCorrectAnswer]);
 
     if (currentQuestion && show && !completed) {
         let question = currentQuestion.question;
