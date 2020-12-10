@@ -8,14 +8,15 @@ export default function QuestionDialog(props) {
     const { currentQuestion, changeQuestion, setCurrentQuestion, completed } = useContext(QuestionsContext);
 
     const { show } = props;
+    const TIMER_SECONDS = 2;
 
     const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-    const [timer, setTimer] = useState(2);
+    const [timer, setTimer] = useState(TIMER_SECONDS);
 
     useEffect(() => {
         if (showCorrectAnswer) {
+            setTimer(TIMER_SECONDS);
             const next = () => {
-                setTimer(2);
                 const result = changeQuestion();
                 setShowCorrectAnswer(false);
                 if (result && result.error) alert(result.error);
@@ -25,7 +26,8 @@ export default function QuestionDialog(props) {
     }, [showCorrectAnswer]);
 
     useEffect(() => {
-        if (timer > 0 && showCorrectAnswer) setTimeout(() => {
+        if (timer > 1 && showCorrectAnswer) setTimeout(() => {
+            console.log(timer);
             setTimer(timer - 1);
         }, 1000);
     }, [timer, showCorrectAnswer]);
@@ -65,7 +67,18 @@ export default function QuestionDialog(props) {
                     {!showCorrectAnswer ?
                         ''
                         :
-                        <span>Next question in {timer} seconds</span>
+                        <>
+                            <span>Next question in {timer} seconds</span>
+                            {currentQuestion.answer == currentQuestion.correct_answer ?
+                                <audio autoplay="true">
+                                    <source src={require('../assets/sounds/correct.wav').default} type="audio/wav" />
+                                </audio>
+                                :
+                                <audio autoplay="true">
+                                    <source src={require('../assets/sounds/incorrect.wav').default} type="audio/wav" />
+                                </audio>
+                            }
+                        </>
                     }
                 </div>
             </div>
