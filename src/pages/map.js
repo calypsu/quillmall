@@ -40,7 +40,8 @@ export default function MapPage() {
         if (countryPointers != null && currentCountry) {
             const c_pointer = countryPointers.find(pointer => pointer.country == currentCountry.name);
             if (c_pointer) {
-                c_pointer.element.setAttribute('fill', 'green');
+                // CHANGE THE SHADE OF BLUE HERE
+                c_pointer.element.setAttribute('fill', 'blue');
                 const values = c_pointer.element.getBoundingClientRect();
                 const { top, left } = values;
                 setModelPosition([left, top])
@@ -215,7 +216,7 @@ export default function MapPage() {
                 position: 'absolute',
                 transition: '0.2s',
                 left: modelPosition[0] + "px",
-                top: (modelPosition[1] - 10) + "px"
+                top: (modelPosition[1] - 80) + "px"
             }}>
                 <img src={require('./../assets/images/shekh.svg').default} style={{...(started ? {height: '100px'} : {})}} />
             </div>
