@@ -29,6 +29,21 @@ a:link, a:visited {
     background-size: contain;
 }
 
+.option button {
+    background: white;
+    color: black
+}
+
+#correct {
+    background: green;
+    color: #fff;
+}
+
+#wrong {
+    background: red;
+    color: #fff
+}
+
 .primary-button {
     background: radial-gradient(closest-side at -59% 201%, #DB0061 0%, #F27C00 100%);
     padding: 35px 50px;
