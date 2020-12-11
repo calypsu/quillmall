@@ -56,8 +56,8 @@ export default function QuestionDialog(props) {
                     <ul style={{listStyleType: "none", paddingInlineStart: "0"}}>
                         {currentQuestion.options.map((option, index) => (
                             <li className="option mv4" key={index}>
-                                <button style={{fontSize: "3.25rem", color: "black", padding: "20px 40px", 
-                                border: "10px solid #054BC8", background: "white", 
+                                <button style={{fontSize: "3.25rem", padding: "20px 40px", 
+                                border: "10px solid #054BC8", 
                                 borderRadius: "20px", width: "100%"}} { ...(!showCorrectAnswer ? {
                                     onClick: () => {
                                         setCurrentQuestion({
@@ -65,10 +65,10 @@ export default function QuestionDialog(props) {
                                             answer: index
                                         })
                                         setShowCorrectAnswer(true)
-                                    }
+                                    },
                                 } : {
                                     // SET CLASSNAME FOR RIGHT OR WRONG HERE
-                                    className: check_answer(currentQuestion, index) ? 'correct' : 'wrong'
+                                    id: check_answer(currentQuestion, index) ? 'correct' : 'wrong'
                                 }) }>
                                     {option}
                                 </button>
