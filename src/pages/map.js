@@ -26,7 +26,7 @@ export default function MapPage() {
         while (rects[i]) {
             const rect = rects[i];
             const rect_country = rect.getAttribute('data-country');
-            if (rect_country && rect_country != '') country_pointers.push({ element: rect, country: rect_country });
+            if (rect_country && rect_country != '') country_pointers.push({ element: rect, country: rect_country, country_data: countries.find(country => country.name == rect_country) });
             i++;
         }
         setCountryPointers(country_pointers);
@@ -198,7 +198,7 @@ export default function MapPage() {
                             </g>
                         </g>
 
-                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="91.065" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.arabic_name : 'Choose a country'}</tspan></text>
+                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="91.065" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.arabic_name : ''}</tspan></text>
                         
                         <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_3" data-name="Vector Smart Object copy 3" transform="translate(1074 401)">
                             <g id="Group_33" data-name="Group 33">

@@ -36,17 +36,29 @@ export default function QuestionDialog(props) {
         question = replace_line_breaks(question);
 
         return (
-            <div className="absolute top-0 right-0" style={{
+            <div className="absolute top-0 right-0 pv5 ph6" style={{
                 height: '100vh',
-                background: 'rgba(0,0,0,0.3)',
+                background: 'linear-gradient(90deg, #CF4630 0%, #D04631 5%, #E3473B 60%, #EA483F 100%)',
                 width: '50vw'
             }}>
                 <div className="question">
-                    Q. {countries.filter(q => q.done).length} {question}
-                    <ul>
+                    <div className="pv5 tc">
+                        <span style={{border: "5px dashed white", borderRadius: "50%", padding: "10px 30px", fontSize: "3.25rem", color: "white"}}>
+                            {countries.filter(q => q.done).length}
+                        </span>
+                        <span className="pl3" style={{fontSize: "3.25rem", color: "white"}}>
+                        السؤال
+                        </span>    
+                    </div> 
+                    <div className="pv4" style={{ fontSize: "3.25rem", color: "white"}}>
+                    {question}
+                    </div>
+                    <ul style={{listStyleType: "none", paddingInlineStart: "0"}}>
                         {currentQuestion.options.map((option, index) => (
-                            <li className="option" key={index}>
-                                <button { ...(!showCorrectAnswer ? {
+                            <li className="option mv4" key={index}>
+                                <button style={{fontSize: "3.25rem", color: "black", padding: "20px 40px", 
+                                border: "10px solid #054BC8", background: "white", 
+                                borderRadius: "20px", width: "100%"}} { ...(!showCorrectAnswer ? {
                                     onClick: () => {
                                         setCurrentQuestion({
                                             ...currentQuestion,
@@ -67,7 +79,7 @@ export default function QuestionDialog(props) {
                         ''
                         :
                         <>
-                            <span>Next question in {timer} seconds</span>
+                            <span style={{color: "white", fontSize: "1.5rem"}}>Next question in {timer} seconds</span>
                             {currentQuestion.answer == currentQuestion.correct_answer ?
                                 <audio autoplay="true">
                                     <source src={require('../assets/sounds/correct.wav').default} type="audio/wav" />
