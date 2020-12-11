@@ -33,7 +33,7 @@ export default function MapPage() {
         }
         setCountryPointers(country_pointers);
         const { left, top } = country_pointers[0].element.getBoundingClientRect();
-        setModelPosition([left, top]);
+        setModelPosition([left+440, top-270]);
         resetQuestionsContext();
     }, []);
 
