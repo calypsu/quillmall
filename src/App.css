@@ -51,7 +51,7 @@ a:link, a:visited {
 .primary-button {
     background: radial-gradient(closest-side at -59% 201%, #DB0061 0%, #F27C00 100%);
     padding: 35px 50px;
-    font-size: 3.25rem;
+    font-size: 2.5rem;
     color: #fff;
     border: none;
     border-radius: 20px;
