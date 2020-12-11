@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import homeIllustration from '../assets/images/home.svg'
+import homeIllustration from '../assets/images/home.png'
 import logo from '../assets/images/logo.svg'
 
 export default function IndexPage() {

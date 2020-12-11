@@ -63,7 +63,7 @@ export default function QuizCompletePage() {
 
                 <input type="submit" className="mv4"
                 style={{padding: "20px 40px", fontSize: "3.25rem", 
-                color: "white", border: "5px solid white", background: "transparent", borderRadius: "10px"}} value="إرسال" />
+                color: "white", border: "5px solid white", background: "transparent", borderRadius: "10px"}} value="submit" placeholder="إرسال" />
                 </div>
             </form>
         </div>        

@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    outline: none;
 }
 
 .clickable {
@@ -15,7 +16,7 @@ body {
 
 #root {
 
-    background-image: url(/src/assets/images/Background.svg);
+    background-image: url(/src/assets/images/background.png);
     background-size: contain;
 }
 
