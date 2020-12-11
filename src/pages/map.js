@@ -141,7 +141,7 @@ export default function MapPage() {
                         <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_4" data-name="Vector Smart Object copy 4" transform="translate(1351 451)">
                             <g id="Group_17" data-name="Group 17">
                             <g id="Group_16" data-name="Group 16" clip-path="url(#clip-path-4)">
-                                <rect data-country={'saudi'} id="Rectangle_9" data-name="Rectangle 9" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                                <rect data-country={'ksa'} id="Rectangle_9" data-name="Rectangle 9" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
