@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { QuestionsContext } from '../contexts/Questions';
 import { check_answer } from '../utils';
 
@@ -8,9 +8,29 @@ export default function QuestionDialog(props) {
     const { currentQuestion, changeQuestion, setCurrentQuestion, completed } = useContext(QuestionsContext);
 
     const { show } = props;
+    const TIMER_SECONDS = 2;
 
-    const [selectedAnswer, setSelectedAnswer] = useState(-1);
     const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+    const [timer, setTimer] = useState(TIMER_SECONDS);
+
+    useEffect(() => {
+        if (showCorrectAnswer) {
+            setTimer(TIMER_SECONDS);
+            const next = () => {
+                const result = changeQuestion();
+                setShowCorrectAnswer(false);
+                if (result && result.error) alert(result.error);
+            };
+            setTimeout(next, 2000);
+        }
+    }, [showCorrectAnswer]);
+
+    useEffect(() => {
+        if (timer > 1 && showCorrectAnswer) setTimeout(() => {
+            console.log(timer);
+            setTimer(timer - 1);
+        }, 1000);
+    }, [timer, showCorrectAnswer]);
 
     if (currentQuestion && show && !completed) {
         let question = currentQuestion.question;
@@ -27,33 +47,38 @@ export default function QuestionDialog(props) {
                     <ul>
                         {currentQuestion.options.map((option, index) => (
                             <li className="option" key={index}>
-                                <button {...(!showCorrectAnswer ? {
-                                    onClick: () => setSelectedAnswer(index),
-                                    // SET CLASSNAME FOR SELECTED HERE
-                                    className: selectedAnswer == index ? 'selected': ''
+                                <button { ...(!showCorrectAnswer ? {
+                                    onClick: () => {
+                                        setCurrentQuestion({
+                                            ...currentQuestion,
+                                            answer: index
+                                        })
+                                        setShowCorrectAnswer(true)
+                                    }
                                 } : {
                                     // SET CLASSNAME FOR RIGHT OR WRONG HERE
                                     className: check_answer(currentQuestion, index) ? 'correct' : 'wrong'
-                                })}>
+                                }) }>
                                     {option}
                                 </button>
                             </li>
                         ))}
                     </ul>
                     {!showCorrectAnswer ?
-                        <button onClick={() => {
-                            setCurrentQuestion({
-                                ...currentQuestion,
-                                answer: selectedAnswer
-                            })
-                            setShowCorrectAnswer(true)
-                        }}>Submit</button>
+                        ''
                         :
-                        <button onClick={() => {
-                            const result = changeQuestion();
-                            setShowCorrectAnswer(false);
-                            if (result && result.error) alert(result.error);
-                        }}>Next</button>
+                        <>
+                            <span>Next question in {timer} seconds</span>
+                            {currentQuestion.answer == currentQuestion.correct_answer ?
+                                <audio autoplay="true">
+                                    <source src={require('../assets/sounds/correct.wav').default} type="audio/wav" />
+                                </audio>
+                                :
+                                <audio autoplay="true">
+                                    <source src={require('../assets/sounds/incorrect.wav').default} type="audio/wav" />
+                                </audio>
+                            }
+                        </>
                     }
                 </div>
             </div>
