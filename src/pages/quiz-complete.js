@@ -20,7 +20,10 @@ export default function QuizCompletePage() {
             method: 'POST',
             body: JSON.stringify(values)
         })
-            .then(console.log)
+            .then(response => {
+                alert('Thank you!');
+                location.href = '/';
+            })
             .catch(console.error)
     }
 
@@ -36,7 +39,7 @@ export default function QuizCompletePage() {
                             على إنجاز مهمته شكراً لكم
                             </div>
                             <div className="mv4 tr" style={{fontSize: "5rem", fontWeight: "bold"}}>
-                                    <span>10</span> / <span>10</span>                                
+                                    <span>{score}</span> / <span>10</span>                                
                             </div>
                 </div>
                 <div className="ph6 pv4">

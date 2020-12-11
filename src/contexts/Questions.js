@@ -77,7 +77,8 @@ export default function QuestionsContextProvider({ children }) {
                 completed,
                 score,
                 setNewQuestion,
-                resetQuestionsContext
+                resetQuestionsContext,
+                countries
             }}
         >
             {children}

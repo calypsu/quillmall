@@ -5,7 +5,7 @@ import { check_answer } from '../utils';
 const replace_line_breaks = text => text.split(/\n/).map(e => <span>{e}<br /></span>);
 
 export default function QuestionDialog(props) {
-    const { currentQuestion, changeQuestion, setCurrentQuestion, completed } = useContext(QuestionsContext);
+    const { countries, currentQuestion, changeQuestion, setCurrentQuestion, completed } = useContext(QuestionsContext);
 
     const { show } = props;
     const TIMER_SECONDS = 2;
@@ -27,7 +27,6 @@ export default function QuestionDialog(props) {
 
     useEffect(() => {
         if (timer > 1 && showCorrectAnswer) setTimeout(() => {
-            console.log(timer);
             setTimer(timer - 1);
         }, 1000);
     }, [timer, showCorrectAnswer]);
@@ -45,7 +44,7 @@ export default function QuestionDialog(props) {
                 <div className="question">
                     <div className="pv5 tc">
                         <span style={{border: "5px dashed white", borderRadius: "50%", padding: "10px 30px", fontSize: "3.25rem", color: "white"}}>
-                            2
+                            {countries.filter(q => q.done).length}
                         </span>
                         <span className="pl3" style={{fontSize: "3.25rem", color: "white"}}>
                         السؤال

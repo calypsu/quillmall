@@ -6,7 +6,7 @@ import books from '../assets/images/books.png'
 
 export default function MapPage() {
 
-    const { completed, currentCountry, setNewQuestion, resetQuestionsContext } = useContext(QuestionsContext);
+    const { completed, countries, currentCountry, setNewQuestion, resetQuestionsContext } = useContext(QuestionsContext);
 
     const [started, setStarted] = useState(false);
     const [countryPointers, setCountryPointers] = useState(null);
@@ -27,21 +27,25 @@ export default function MapPage() {
         while (rects[i]) {
             const rect = rects[i];
             const rect_country = rect.getAttribute('data-country');
-            if (rect_country && rect_country != '') country_pointers.push({ element: rect, country: rect_country });
+            if (rect_country && rect_country != '') country_pointers.push({ element: rect, country: rect_country, country_data: countries.find(country => country.name == rect_country) });
             i++;
         }
         setCountryPointers(country_pointers);
-
+        const { left, top } = country_pointers[0].element.getBoundingClientRect();
+        setModelPosition([left, top]);
         resetQuestionsContext();
     }, []);
 
     useEffect(() => {
+
         if (countryPointers != null && currentCountry) {
             const c_pointer = countryPointers.find(pointer => pointer.country == currentCountry.name);
             if (c_pointer) {
+                // CHANGE THE SHADE OF BLUE HERE
+                c_pointer.element.setAttribute('fill', 'blue');
                 const values = c_pointer.element.getBoundingClientRect();
-                    const { top, left } = values
-                    setModelPosition([left, top])
+                const { top, left } = values;
+                setModelPosition([left, top])
             }
         }
     }, [currentCountry]);
@@ -196,7 +200,7 @@ export default function MapPage() {
                             </g>
                         </g>
 
-                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="20" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.en_name : 'Choose a country'}</tspan></text>
+                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="91.065" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.arabic_name : ''}</tspan></text>
                         
                         <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_3" data-name="Vector Smart Object copy 3" transform="translate(1074 401)">
                             <g id="Group_33" data-name="Group 33">
@@ -213,9 +217,9 @@ export default function MapPage() {
                 position: 'absolute',
                 transition: '0.2s',
                 left: modelPosition[0] + "px",
-                top: modelPosition[1] + "px",
+                top: (modelPosition[1] - 80) + "px"
             }}>
-                <img src={require('./../assets/images/shekh.svg').default} />
+                <img src={require('./../assets/images/shekh.svg').default} style={{...(started ? {height: '100px'} : {})}} />
             </div>
 
             {!started ?
@@ -227,10 +231,12 @@ export default function MapPage() {
                     <Redirect to="/complete" />
             }
 
-            <div className="absolute bottom-0">
-                <img src={books} style={{maxHeight: "350px"}} alt=""/>
+            <div style={{ position: 'absolute', top: '0', left: '0', padding: '20px'}}>
+                <a href="/">Close</a>
             </div>
-
+            <div style={{ position: 'absolute', bottom: '0', left: '0', padding: '20px'}}>
+                <img src={books} alt=""/>
+            </div>
         </div>
     )
 }
