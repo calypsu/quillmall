@@ -33,7 +33,7 @@ export default function MapPage() {
         }
         setCountryPointers(country_pointers);
         const { left, top } = country_pointers[0].element.getBoundingClientRect();
-        setModelPosition([left+440, top-270]);
+        setModelPosition([left+400, 150]);
         resetQuestionsContext();
     }, []);
 
@@ -43,7 +43,7 @@ export default function MapPage() {
             const c_pointer = countryPointers.find(pointer => pointer.country == currentCountry.name);
             if (c_pointer) {
                 // CHANGE THE SHADE OF BLUE HERE
-                c_pointer.element.setAttribute('fill', 'blue');
+                c_pointer.element.setAttribute('fill', '#c50e00');
                 const values = c_pointer.element.getBoundingClientRect();
                 const { top, left } = values;
                 setModelPosition([left, top])
@@ -53,9 +53,9 @@ export default function MapPage() {
 
     return (
         <div style={ started ? { display: 'grid', gridTemplateColumns: '1fr 1fr' } : {} }>
-            <div className="map-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+            <div className="map-container overflow-y-hidden" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
                 <svg xmlns="http://www.w3.org/2000/svg"
-                    style={{ width: '95%' }}
+                    style={{ width: '95%', maxHeight: "100vh" }}
                     viewBox="0 0 1526 971.468">
                     <defs>
                         <clipPath id="clip-path">
@@ -160,8 +160,8 @@ export default function MapPage() {
                         </g>
                         <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_6" data-name="Vector Smart Object copy 6" transform="translate(1215.156 196.156)">
                             <g id="Group_21" data-name="Group 21">
-                            <g id="Group_20" data-name="Group 20" clip-path="url(#clip-path-7)">
-                                <rect data-country={'syria'} id="Rectangle_11" data-name="Rectangle 11" width="48.688" height="48.688" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            <g id="Group_20" data-name="Group 20" clip-path="url(#clip-path-4)">
+                                <rect data-country={'syria'} id="Rectangle_11" data-name="Rectangle 11" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
@@ -195,13 +195,13 @@ export default function MapPage() {
                         </g>
                         <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(693.787 244.787)">
                             <g id="Group_31" data-name="Group 31">
-                            <g id="Group_30" data-name="Group 30" clip-path="url(#clip-path-12)">
-                                <rect data-country={'tunisia'} id="Rectangle_16" data-name="Rectangle 16" width="31.426" height="31.426" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            <g id="Group_30" data-name="Group 30" clip-path="url(#clip-path-4)">
+                                <rect data-country={'tunisia'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
                             </g>
                             </g>
                         </g>
 
-                        <text id="سوريا" transform="translate(1180.532 171.532)" font-size="91.065" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.arabic_name : ''}</tspan></text>
+                        <text id="سوريا" transform="translate(1000.532 171.532)" font-size="50" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.arabic_name : ''}</tspan></text>
                         
                         <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_3" data-name="Vector Smart Object copy 3" transform="translate(1074 401)">
                             <g id="Group_33" data-name="Group 33">
@@ -237,8 +237,8 @@ export default function MapPage() {
                     <img src={close} style={{width: "40px", height: "40px", position: "absolute"}} alt=""/>
                 </a>
             </div>
-            <div style={{ position: 'absolute', bottom: '0', left: '0', padding: '20px'}}>
-                <img src={books} alt=""/>
+            <div style={{ position: 'absolute', bottom: '0', left: '0', padding: '20px', paddingBottom: "0px"}}>
+                <img src={books} style={{maxHeight: "200px"}} alt=""/>
             </div>
         </div>
     )
