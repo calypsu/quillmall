@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import QuestionDialog from '../components/QuestionDialog';
 import { QuestionsContext } from '../contexts/Questions';
 import { Redirect } from 'react-router-dom';
+import books from '../assets/images/books.png';
+import close from '../assets/images/cancel.svg';
 
 export default function MapPage() {
 
@@ -231,7 +233,12 @@ export default function MapPage() {
             }
 
             <div style={{ position: 'absolute', top: '0', left: '0', padding: '20px'}}>
-                <a href="/">Close</a>
+                <a href="/">
+                    <img src={close} style={{width: "40px", height: "40px", position: "absolute"}} alt=""/>
+                </a>
+            </div>
+            <div style={{ position: 'absolute', bottom: '0', left: '0', padding: '20px'}}>
+                <img src={books} alt=""/>
             </div>
         </div>
     )

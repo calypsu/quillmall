@@ -50,7 +50,7 @@ export default function QuestionDialog(props) {
                         السؤال
                         </span>    
                     </div> 
-                    <div className="pv4" style={{ fontSize: "3.25rem", color: "white"}}>
+                    <div className="pv4 tr" style={{ fontSize: "3.25rem", color: "white"}}>
                     {question}
                     </div>
                     <ul style={{listStyleType: "none", paddingInlineStart: "0"}}>
@@ -79,7 +79,7 @@ export default function QuestionDialog(props) {
                         ''
                         :
                         <>
-                            <span style={{color: "white", fontSize: "1.5rem"}}>Next question in {timer} seconds</span>
+                            <span style={{color: "white", fontSize: "1.5rem"}}></span>
                             {currentQuestion.answer == currentQuestion.correct_answer ?
                                 <audio autoplay="true">
                                     <source src={require('../assets/sounds/correct.wav').default} type="audio/wav" />

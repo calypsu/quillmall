@@ -1,5 +1,10 @@
 body {
     margin: 0;
+    outline: none;
+}
+
+*:focus {
+    outline: none;
 }
 
 a:link, a:visited {
@@ -20,7 +25,7 @@ a:link, a:visited {
 
 #root {
 
-    background-image: url(/src/assets/images/Background.svg);
+    background-image: url(/src/assets/images/background.png);
     background-size: contain;
 }
 
