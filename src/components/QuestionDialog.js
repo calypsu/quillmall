@@ -43,7 +43,7 @@ export default function QuestionDialog(props) {
             }}>
                 <div className="question">
                     <div className="pv5 tc">
-                        <span style={{border: "5px dashed white", borderRadius: "50%", padding: "10px 30px", fontSize: "3.25rem", color: "white"}}>
+                        <span style={{border: "5px dashed white", borderRadius: "50%", padding: "0px 30px", fontSize: "3.25rem", color: "white"}}>
                             {countries.filter(q => q.done).length}
                         </span>
                         <span className="pl3" style={{fontSize: "3.25rem", color: "white"}}>

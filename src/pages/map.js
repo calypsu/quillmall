@@ -43,7 +43,7 @@ export default function MapPage() {
             const c_pointer = countryPointers.find(pointer => pointer.country == currentCountry.name);
             if (c_pointer) {
                 // CHANGE THE SHADE OF BLUE HERE
-                c_pointer.element.setAttribute('fill', 'blue');
+                c_pointer.element.setAttribute('fill', '#c50e00');
                 const values = c_pointer.element.getBoundingClientRect();
                 const { top, left } = values;
                 setModelPosition([left, top])
