@@ -22,7 +22,7 @@ export default function QuizCompletePage() {
             .catch(console.error)
     }
 
-    // if (!completed) return <Redirect to="/" />;
+    if (!completed) return <Redirect to="/" />;
     return (
         <div className="w-container">
             <form onSubmit={handleSubmit(submitForm)}>

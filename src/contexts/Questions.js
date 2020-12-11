@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { sendError, gen_random, check_answer } from '../utils';
+import { countries as DefaultCountryList } from '../assets/documents/countries';
 
 export const QuestionsContext = React.createContext();
 
@@ -14,48 +15,7 @@ export default function QuestionsContextProvider({ children }) {
     const [score, setScore] = useState(0);
 
     const fetchCountries = () => {
-        const data = [
-            {
-                name: "syria",
-                arabic_name: "Arabi Habibi",
-                en_name: "Syria",
-                questions: [
-                    _question("What is the name of this country?", ['Syria', 'Israel'], 0),
-                    _question("What is the most important thing about this country", ['Tatti', 'Goo'], 0)
-                ],
-                done: false
-            },
-            {
-                name: "egypt",
-                arabic_name: "Arabi Habibi",
-                en_name: "Egypt",
-                questions: [
-                    _question("What is the name of this country?", ['Egypt', 'Jordan'], 0),
-                    _question("Is Mossad of this country?", ['Yes', 'No'], 1)
-                ],
-                done: false
-            },
-            {
-                name: "iraq",
-                arabic_name: "Arabi Habibi",
-                en_name: "Iraq",
-                questions: [
-                    _question("What is the name of this country?", ['Iraq', 'India'], 0),
-                    _question("Janardhan Jhankad aka this country?", ['Yes', 'No'], 1)
-                ],
-                done: false
-            },
-            {
-                name: "uae",
-                arabic_name: "Arabi Habibi",
-                en_name: "UAE",
-                questions: [
-                    _question("Some shit about this country?", ['Yes', 'No'], 0),
-                    _question("Some other shit about this country?", ["Okay", "Not really"], 0)
-                ],
-                done: false
-            }
-        ];
+        const data = JSON.parse(JSON.stringify(DefaultCountryList));
         setCountries(data);
     }
 
