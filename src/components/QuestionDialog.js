@@ -19,7 +19,7 @@ export default function QuestionDialog(props) {
         return (
             <div className="absolute top-0 right-0" style={{
                 height: '100vh',
-                background: '#eee',
+                background: 'transparent linear-gradient(90deg, #CF4630 0%, #D04631 5%, #E3473B 60%, #EA483F 100%) 0% 0% no-repeat padding-box;',
                 width: '50vw'
             }}>
                 <div className="question">
