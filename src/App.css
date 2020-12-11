@@ -20,10 +20,14 @@ body {
 }
 
 .primary-button {
-    background: transparent radial-gradient(closest-side at -59% 201%, #DB0061 0%, #F27C00 100%) 0% 0% no-repeat padding-box;
+    background: radial-gradient(closest-side at -59% 201%, #DB0061 0%, #F27C00 100%);
     padding: 35px 50px;
     font-size: 3.25rem;
     color: #fff;
     border: none;
     border-radius: 20px;
+}
+
+.contact-input::placeholder {
+    color: white;
 }
