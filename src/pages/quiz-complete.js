@@ -25,6 +25,7 @@ export default function QuizCompletePage() {
     if (!completed) return <Redirect to="/" />;
     return (
         <div className="w-container">
+            Your score is: {score}<br />
             <form onSubmit={handleSubmit(submitForm)}>
                 <input type="text" name="name" ref={register({ required: true })} placeholder="Name" /><br />
                 {errors && errors.name && errors.name.message}<br />

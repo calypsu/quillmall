@@ -5,7 +5,7 @@ import { check_answer } from '../utils';
 const replace_line_breaks = text => text.split(/\n/).map(e => <span>{e}<br /></span>);
 
 export default function QuestionDialog(props) {
-    const { currentQuestion, changeQuestion, setCurrentQuestion, completed } = useContext(QuestionsContext);
+    const { countries, currentQuestion, changeQuestion, setCurrentQuestion, completed } = useContext(QuestionsContext);
 
     const { show } = props;
     const TIMER_SECONDS = 2;
@@ -27,7 +27,6 @@ export default function QuestionDialog(props) {
 
     useEffect(() => {
         if (timer > 1 && showCorrectAnswer) setTimeout(() => {
-            console.log(timer);
             setTimer(timer - 1);
         }, 1000);
     }, [timer, showCorrectAnswer]);
@@ -43,7 +42,7 @@ export default function QuestionDialog(props) {
                 width: '50vw'
             }}>
                 <div className="question">
-                    {question}
+                    Q. {countries.filter(q => q.done).length} {question}
                     <ul>
                         {currentQuestion.options.map((option, index) => (
                             <li className="option" key={index}>
