@@ -24,23 +24,29 @@ export default function MapPage() {
     useEffect(() => {
         let country_pointers = [];
         const rects = document.getElementsByTagName('rect');
-        let i = 0;
+        let i = 0, uae_index = -1;
+        let country_count = 0;
+
         while (rects[i]) {
             const rect = rects[i];
             const rect_country = rect.getAttribute('data-country');
-            if (rect_country && rect_country != '') country_pointers.push({ element: rect, country: rect_country, country_data: countries.find(country => country.name == rect_country) });
+            if (rect_country && rect_country != '') {
+                country_pointers.push({ element: rect, country: rect_country });
+                country_count++;
+            }
+            if (rect_country == 'uae') uae_index = country_count - 1;
             i++;
         }
-        setCountryPointers(country_pointers);
-        const { left, top } = country_pointers[0].element.getBoundingClientRect();
-        setModelPosition([left+400, 150]);
+
+        const { left, top } = country_pointers[uae_index].element.getBoundingClientRect();
+        setCountryPointers(country_pointers)
+        setModelPosition([left, top]);
         resetQuestionsContext();
     }, []);
 
     useEffect(() => {
-
         if (countryPointers != null && currentCountry) {
-            const c_pointer = countryPointers.find(pointer => pointer.country == currentCountry.name);
+            const c_pointer = countryPointers.find(pointer => pointer.country == (currentCountry.name || ''));
             if (c_pointer) {
                 // CHANGE THE SHADE OF BLUE HERE
                 c_pointer.element.setAttribute('fill', '#c50e00');
