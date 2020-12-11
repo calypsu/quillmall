@@ -12,3 +12,22 @@ body {
 
 .top-0 { top: 0 }
 .right-0 { right: 0 }
+
+#root {
+
+    background-image: url(/src/assets/images/Background.svg);
+    background-size: contain;
+}
+
+.primary-button {
+    background: radial-gradient(closest-side at -59% 201%, #DB0061 0%, #F27C00 100%);
+    padding: 35px 50px;
+    font-size: 3.25rem;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+}
+
+.contact-input::placeholder {
+    color: white;
+}

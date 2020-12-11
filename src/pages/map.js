@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import QuestionDialog from '../components/QuestionDialog';
 import { QuestionsContext } from '../contexts/Questions';
 import { Redirect } from 'react-router-dom';
+import books from '../assets/images/books.svg'
 
 export default function MapPage() {
 
@@ -225,6 +226,10 @@ export default function MapPage() {
                     :
                     <Redirect to="/complete" />
             }
+
+            <div className="absolute bottom-0">
+                <img src={books} style={{maxHeight: "350px"}} alt=""/>
+            </div>
 
         </div>
     )
