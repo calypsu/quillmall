@@ -4,8 +4,6 @@ import { countries as DefaultCountryList } from '../assets/documents/countries';
 
 export const QuestionsContext = React.createContext();
 
-const _question = (question, options, correct_answer) => ({ question, options, correct_answer });
-
 export default function QuestionsContextProvider({ children }) {
 
     const [countries, setCountries] = useState([]);
@@ -36,18 +34,29 @@ export default function QuestionsContextProvider({ children }) {
       }      
 
     const setNewQuestion = (country_name = null) => {
-        const remaining_countries = countries.filter(country => !country.done);
+        let remaining_countries = countries.filter(country => !country.done);
 
         let country_index = -1;
         if (country_name == null) country_index = gen_random(remaining_countries.length);
-        else remaining_countries.map((country, index) => {
-            if (country.name == country_name) country_index = index;
-        });
+        else {
+            remaining_countries.map((country, index) => {
+                if (country.name == country_name) country_index = index;
+            });
+
+            // IF THE COUNTRY DOES NOT EXIST IN THE LIST OF REMAINING COUNTRIES
+            // THEN IT CREATES A NEW LIST THAT REMOVES ONE COUNTRY AND ADDS THE NEW COUNTRY
+            if (country_index == -1) {
+                const excludedCountry = DefaultCountryList.find(country => country.name == country_name);
+                remaining_countries = [ ...remaining_countries.slice(0, remaining_countries.length - 1), excludedCountry ];
+                country_index = remaining_countries.length - 1;
+            }
+        }
 
         // REMOVE AFTER GETTING DATA
         country_index = (country_index == -1) ? 0 : country_index;
         
         const current_country = { ...remaining_countries[country_index] };
+        console.log(current_country);
         const current_question = current_country.questions[gen_random(current_country.questions.length)];
         
         const removed_country = remaining_countries.splice(country_index, 1)[0];
