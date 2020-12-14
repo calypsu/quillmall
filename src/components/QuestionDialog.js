@@ -21,7 +21,7 @@ export default function QuestionDialog(props) {
                 setShowCorrectAnswer(false);
                 if (result && result.error) alert(result.error);
             };
-            setTimeout(next, 2000);
+            setTimeout(next, 1200);
         }
     }, [showCorrectAnswer]);
 
