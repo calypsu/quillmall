@@ -16,8 +16,24 @@ export default function QuestionsContextProvider({ children }) {
 
     const fetchCountries = () => {
         const data = JSON.parse(JSON.stringify(DefaultCountryList));
-        setCountries(data);
+        shuffle(data);
+        setCountries(data.slice(0, 10));
     }
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+      
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+      
+        return array;
+      }      
 
     const setNewQuestion = (country_name = null) => {
         const remaining_countries = countries.filter(country => !country.done);

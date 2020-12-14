@@ -206,6 +206,69 @@ export default function MapPage() {
                             </g>
                             </g>
                         </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(390 290)">
+                            <g id="Group_111" data-name="Group 111">
+                            <g id="Group_110" data-name="Group 110" clip-path="url(#clip-path-4)">
+                                <rect data-country={'morocco'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(322 540)">
+                            <g id="Group_113" data-name="Group 113">
+                            <g id="Group_112" data-name="Group 112" clip-path="url(#clip-path-4)">
+                                <rect data-country={'mauritania'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(1429 878)">
+                            <g id="Group_115" data-name="Group 115">
+                            <g id="Group_114" data-name="Group 114" clip-path="url(#clip-path-4)">
+                                <rect data-country={'somalia'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(851 387)">
+                            <g id="Group_117" data-name="Group 117">
+                            <g id="Group_116" data-name="Group 116" clip-path="url(#clip-path-4)">
+                                <rect data-country={'libya'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(1169 289)">
+                            <g id="Group_119" data-name="Group 119">
+                            <g id="Group_118" data-name="Group 118" clip-path="url(#clip-path-4)">
+                                <rect data-country={'palestine'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(1205 313)">
+                            <g id="Group_121" data-name="Group 121">
+                            <g id="Group_120" data-name="Group 120" clip-path="url(#clip-path-4)">
+                                <rect data-country={'jordan'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(1429 646)">
+                            <g id="Group_123" data-name="Group 123">
+                            <g id="Group_122" data-name="Group 122" clip-path="url(#clip-path-4)">
+                                <rect data-country={'yemen'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(1598 547)">
+                            <g id="Group_125" data-name="Group 125">
+                            <g id="Group_124" data-name="Group 124" clip-path="url(#clip-path-4)">
+                                <rect data-country={'oman'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
+                        <g className="clickable" onClick={e => handleInitialCountryClick(e)} id="Vector_Smart_Object_copy_2" data-name="Vector Smart Object copy 2" transform="translate(1494 424)">
+                            <g id="Group_127" data-name="Group 127">
+                            <g id="Group_126" data-name="Group 126" clip-path="url(#clip-path-4)">
+                                <rect data-country={'bahrain'} id="Rectangle_16" data-name="Rectangle 16" width="27" height="27" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+                            </g>
+                            </g>
+                        </g>
 
                         <text id="سوريا" transform="translate(1000.532 171.532)" font-size="50" font-family="GeezaPro, Geeza Pro"><tspan x="-192.71" y="0" id="current-country">{currentCountry ? currentCountry.arabic_name : ''}</tspan></text>
                         
