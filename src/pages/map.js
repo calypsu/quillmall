@@ -7,7 +7,7 @@ import close from '../assets/images/cancel.svg';
 
 export default function MapPage() {
 
-    const { completed, countries, currentCountry, setNewQuestion, resetQuestionsContext } = useContext(QuestionsContext);
+    const { completed, countries, currentCountry, setNewQuestion, resetQuestionsContext, level, changeLevel } = useContext(QuestionsContext);
 
     const [started, setStarted] = useState(false);
     const [countryPointers, setCountryPointers] = useState(null);
@@ -308,6 +308,19 @@ export default function MapPage() {
             </div>
             <div style={{ position: 'absolute', bottom: '0', left: '0', padding: '20px', paddingBottom: "0px"}}>
                 <img src={books} style={{maxHeight: "200px"}} alt=""/>
+            </div>
+            
+            {/* LEVEL SELECT POPUP */}
+            <div className={(level == null ? 'show' : 'hide') + ' level-popup'}>
+                <h2>Select your level:</h2>
+                <button style={{fontSize: "2rem", padding: "20px 40px", 
+                    border: "10px solid #054BC8", 
+                    borderRadius: "20px", width: "100%"}}
+                    onClick={() => changeLevel(1)}>Child</button> <br />
+                <button style={{fontSize: "2rem", padding: "20px 40px", 
+                    border: "10px solid #054BC8", 
+                    borderRadius: "20px", width: "100%"}}
+                    onClick= {() => changeLevel(0)}>Adult</button>
             </div>
         </div>
     )

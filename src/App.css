@@ -48,6 +48,32 @@ a:link, a:visited {
     color: #fff
 }
 
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+.level-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+}
+
+.level-popup button {
+    max-width: 500px;
+    margin: 0 10px;
+}
+
 .primary-button {
     background: radial-gradient(closest-side at -59% 201%, #DB0061 0%, #F27C00 100%);
     padding: 35px 50px;

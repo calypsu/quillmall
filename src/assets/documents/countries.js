@@ -466,327 +466,325 @@ export const countries = [
     },
   ],
   [
-    [
-      {
-        name: "lebanon",
-        arabic_name: "لبنان",
-        person_name: "",
-        questions: [
-          {
-            question: "أذكر نوع حرف اللام في كلمة السماء",
-            options: ["لام شمسية", "لام قمرية"],
-            correct_answer: 0,
-          },
-          {
-            question: "عدد حروف اللغة العربية",
-            options: ["28 حرفاً", "30 حرفاً"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "syria",
-        arabic_name: "سوريا",
-        person_name: "",
-        questions: [
-          {
-            question: "ماهي حروف المد ",
-            options: ["أ و ي", "س ش ص"],
-            correct_answer: 0,
-          },
-          {
-            question: "كلمة التسامح اسم أم فعل؟",
-            options: ["اسم", "فعل"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "tunisia",
-        arabic_name: "تونس",
-        person_name: "",
-        questions: [
-          {
-            question: "ما جنسية أبي القاسم الشابي؟",
-            options: ["مصري ", "تونسي"],
-            correct_answer: 1,
-          },
-          {
-            question: '"ما نوع الفعل ""انهض""؟ "',
-            options: ["ماضٍ", "أمر"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "egypt",
-        arabic_name: "مصر",
-        person_name: "",
-        questions: [
-          {
-            question: "ما جنسية طه حسين؟ ",
-            options: ["تونسي", "مصري"],
-            correct_answer: 1,
-          },
-          {
-            question: "اذكر نوع حرف اللام في السماء",
-            options: ["لام شمسية", "لام قمرية"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "uae",
-        arabic_name: "الإمارات العربية المتحدة",
-        person_name: "",
-        questions: [
-          {
-            question: "أسم دولتنا يُكتب",
-            options: ["الأمارات", "الإمارات"],
-            correct_answer: 1,
-          },
-          {
-            question:
-              "ما إعراب كلمة العربية في اسم دولة الإمارات العربية المتحدة",
-            options: ["مضاف إليه", "نعت"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "ksa",
-        arabic_name: "المملكة العربية السعودية",
-        person_name: "",
-        questions: [
-          {
-            question: '"ما نوع الفعل ""يلعب""؟ "',
-            options: ["مضارع", "ماضٍ"],
-            correct_answer: 0,
-          },
-          {
-            question: '"ما نوع الفعل ""أكل""؟ "',
-            options: ["أمر", "ماضٍ"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "sudan",
-        arabic_name: "السودان",
-        person_name: "",
-        questions: [
-          {
-            question: "ما نوع التاء في فاطمة؟",
-            options: ["مفتوحة", "مربوطة"],
-            correct_answer: 1,
-          },
-          {
-            question: "ما نوع التاء في حكمت؟",
-            options: ["مربوطة", "مفتوحة"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "kuwait",
-        arabic_name: "الكويت",
-        person_name: "",
-        questions: [
-          {
-            question: "ماهي حروف الجر",
-            options: ["في - من - إلى", "ليت - كأن - لعل"],
-            correct_answer: 0,
-          },
-          {
-            question: "من أخوات كان",
-            options: ["صار", "أن"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "iraq",
-        arabic_name: "العراق",
-        person_name: "",
-        questions: [
-          {
-            question: "اسم الإشارة للمفرد للمذكر",
-            options: ["هذه ", "هذا "],
-            correct_answer: 1,
-          },
-          {
-            question: "اسم الإشارة للمفرد للمؤنث",
-            options: ["هذا", "هذه"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "algeria",
-        arabic_name: "الجزائر",
-        person_name: "",
-        questions: [
-          {
-            question: "اسم الإشارة للجمع",
-            options: ["هذان", "هؤلاء"],
-            correct_answer: 1,
-          },
-          {
-            question: "اسم الإشارة للمثنى المذكر",
-            options: ["هاتان", "هذان"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "mauritania",
-        arabic_name: "موريتانيا",
-        person_name: "",
-        questions: [
-          {
-            question: "اسم الإشارة للمثنى المؤنث",
-            options: ["هذان", "هاتان"],
-            correct_answer: 1,
-          },
-          {
-            question: "ما جمع كلمة سيارة",
-            options: ["سيارين", "سيارات"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "morocco",
-        arabic_name: "المغرب",
-        person_name: "",
-        questions: [
-          {
-            question: "ما جمع مفرد طرق ",
-            options: ["طرقة", "طريق"],
-            correct_answer: 1,
-          },
-          {
-            question: "ما مثنى فتاة ",
-            options: ["فتاتون", "فتاتان"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "somalia",
-        arabic_name: "الصومال",
-        person_name: "",
-        questions: [
-          {
-            question: "أجلس فوق الكرسي. فوق هنا ظرف زمان أم ظرف مكان",
-            options: ["ظرف زمان", "ظرف مكان"],
-            correct_answer: 1,
-          },
-          {
-            question: "ما مضاد كلمة سريع",
-            options: ["بطيء", "غريب"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "libya",
-        arabic_name: "ليبيا",
-        person_name: "",
-        questions: [
-          {
-            question: "ما جمع امرأة",
-            options: ["امراءات", "نساء"],
-            correct_answer: 1,
-          },
-          {
-            question: "_____ كتاب",
-            options: ["هذه ", "هذا"],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "palestine",
-        arabic_name: "فلسطين",
-        person_name: "",
-        questions: [
-          {
-            question: "_____ دراجة",
-            options: ["هذه ", "هذا"],
-            correct_answer: 0,
-          },
-          {
-            question: "ما ضد ضعيف؟",
-            options: ["قوي", "شجاع"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "jordan",
-        arabic_name: "الأردن",
-        person_name: "",
-        questions: [
-          { question: "هل تحب اللعب", options: ["؟", "."], correct_answer: 0 },
-          {
-            question: "الولدان _____",
-            options: ["مؤدبان", "مؤدب"],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "yemen",
-        arabic_name: "اليمن",
-        person_name: "",
-        questions: [
-          {
-            question: "هاتان _____",
-            options: ["صديقان", "صديقتان"],
-            correct_answer: 1,
-          },
-          {
-            question: "أرتب سريري في الصباحك",
-            options: ["جملة فعلية", "جملة اسمية "],
-            correct_answer: 0,
-          },
-        ],
-      },
-      {
-        name: "oman",
-        arabic_name: "عُمان",
-        person_name: "",
-        questions: [
-          {
-            question: "هذا معطفي أنا_____",
-            options: ["أحبة", "أحبه"],
-            correct_answer: 1,
-          },
-          {
-            question: "_____ أختي إلى المدرسة.",
-            options: ["يذهب", "تذهب "],
-            correct_answer: 1,
-          },
-        ],
-      },
-      {
-        name: "bahrain",
-        arabic_name: "البحرين",
-        person_name: "",
-        questions: [
-          {
-            question: "الأولاد _____  القطة.",
-            options: ["ساعدن", "ساعدوا"],
-            correct_answer: 1,
-          },
-          {
-            question: "_____ يلعب بالكرة.",
-            options: ["هو", "هي"],
-            correct_answer: 0,
-          },
-        ],
-      },
-    ],
+    {
+      name: "lebanon",
+      arabic_name: "لبنان",
+      person_name: "",
+      questions: [
+        {
+          question: "أذكر نوع حرف اللام في كلمة السماء",
+          options: ["لام شمسية", "لام قمرية"],
+          correct_answer: 0,
+        },
+        {
+          question: "عدد حروف اللغة العربية",
+          options: ["28 حرفاً", "30 حرفاً"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "syria",
+      arabic_name: "سوريا",
+      person_name: "",
+      questions: [
+        {
+          question: "ماهي حروف المد ",
+          options: ["أ و ي", "س ش ص"],
+          correct_answer: 0,
+        },
+        {
+          question: "كلمة التسامح اسم أم فعل؟",
+          options: ["اسم", "فعل"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "tunisia",
+      arabic_name: "تونس",
+      person_name: "",
+      questions: [
+        {
+          question: "ما جنسية أبي القاسم الشابي؟",
+          options: ["مصري ", "تونسي"],
+          correct_answer: 1,
+        },
+        {
+          question: '"ما نوع الفعل ""انهض""؟ "',
+          options: ["ماضٍ", "أمر"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "egypt",
+      arabic_name: "مصر",
+      person_name: "",
+      questions: [
+        {
+          question: "ما جنسية طه حسين؟ ",
+          options: ["تونسي", "مصري"],
+          correct_answer: 1,
+        },
+        {
+          question: "اذكر نوع حرف اللام في السماء",
+          options: ["لام شمسية", "لام قمرية"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "uae",
+      arabic_name: "الإمارات العربية المتحدة",
+      person_name: "",
+      questions: [
+        {
+          question: "أسم دولتنا يُكتب",
+          options: ["الأمارات", "الإمارات"],
+          correct_answer: 1,
+        },
+        {
+          question:
+            "ما إعراب كلمة العربية في اسم دولة الإمارات العربية المتحدة",
+          options: ["مضاف إليه", "نعت"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "ksa",
+      arabic_name: "المملكة العربية السعودية",
+      person_name: "",
+      questions: [
+        {
+          question: '"ما نوع الفعل ""يلعب""؟ "',
+          options: ["مضارع", "ماضٍ"],
+          correct_answer: 0,
+        },
+        {
+          question: '"ما نوع الفعل ""أكل""؟ "',
+          options: ["أمر", "ماضٍ"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "sudan",
+      arabic_name: "السودان",
+      person_name: "",
+      questions: [
+        {
+          question: "ما نوع التاء في فاطمة؟",
+          options: ["مفتوحة", "مربوطة"],
+          correct_answer: 1,
+        },
+        {
+          question: "ما نوع التاء في حكمت؟",
+          options: ["مربوطة", "مفتوحة"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "kuwait",
+      arabic_name: "الكويت",
+      person_name: "",
+      questions: [
+        {
+          question: "ماهي حروف الجر",
+          options: ["في - من - إلى", "ليت - كأن - لعل"],
+          correct_answer: 0,
+        },
+        {
+          question: "من أخوات كان",
+          options: ["صار", "أن"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "iraq",
+      arabic_name: "العراق",
+      person_name: "",
+      questions: [
+        {
+          question: "اسم الإشارة للمفرد للمذكر",
+          options: ["هذه ", "هذا "],
+          correct_answer: 1,
+        },
+        {
+          question: "اسم الإشارة للمفرد للمؤنث",
+          options: ["هذا", "هذه"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "algeria",
+      arabic_name: "الجزائر",
+      person_name: "",
+      questions: [
+        {
+          question: "اسم الإشارة للجمع",
+          options: ["هذان", "هؤلاء"],
+          correct_answer: 1,
+        },
+        {
+          question: "اسم الإشارة للمثنى المذكر",
+          options: ["هاتان", "هذان"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "mauritania",
+      arabic_name: "موريتانيا",
+      person_name: "",
+      questions: [
+        {
+          question: "اسم الإشارة للمثنى المؤنث",
+          options: ["هذان", "هاتان"],
+          correct_answer: 1,
+        },
+        {
+          question: "ما جمع كلمة سيارة",
+          options: ["سيارين", "سيارات"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "morocco",
+      arabic_name: "المغرب",
+      person_name: "",
+      questions: [
+        {
+          question: "ما جمع مفرد طرق ",
+          options: ["طرقة", "طريق"],
+          correct_answer: 1,
+        },
+        {
+          question: "ما مثنى فتاة ",
+          options: ["فتاتون", "فتاتان"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "somalia",
+      arabic_name: "الصومال",
+      person_name: "",
+      questions: [
+        {
+          question: "أجلس فوق الكرسي. فوق هنا ظرف زمان أم ظرف مكان",
+          options: ["ظرف زمان", "ظرف مكان"],
+          correct_answer: 1,
+        },
+        {
+          question: "ما مضاد كلمة سريع",
+          options: ["بطيء", "غريب"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "libya",
+      arabic_name: "ليبيا",
+      person_name: "",
+      questions: [
+        {
+          question: "ما جمع امرأة",
+          options: ["امراءات", "نساء"],
+          correct_answer: 1,
+        },
+        {
+          question: "_____ كتاب",
+          options: ["هذه ", "هذا"],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "palestine",
+      arabic_name: "فلسطين",
+      person_name: "",
+      questions: [
+        {
+          question: "_____ دراجة",
+          options: ["هذه ", "هذا"],
+          correct_answer: 0,
+        },
+        {
+          question: "ما ضد ضعيف؟",
+          options: ["قوي", "شجاع"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "jordan",
+      arabic_name: "الأردن",
+      person_name: "",
+      questions: [
+        { question: "هل تحب اللعب", options: ["؟", "."], correct_answer: 0 },
+        {
+          question: "الولدان _____",
+          options: ["مؤدبان", "مؤدب"],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "yemen",
+      arabic_name: "اليمن",
+      person_name: "",
+      questions: [
+        {
+          question: "هاتان _____",
+          options: ["صديقان", "صديقتان"],
+          correct_answer: 1,
+        },
+        {
+          question: "أرتب سريري في الصباحك",
+          options: ["جملة فعلية", "جملة اسمية "],
+          correct_answer: 0,
+        },
+      ],
+    },
+    {
+      name: "oman",
+      arabic_name: "عُمان",
+      person_name: "",
+      questions: [
+        {
+          question: "هذا معطفي أنا_____",
+          options: ["أحبة", "أحبه"],
+          correct_answer: 1,
+        },
+        {
+          question: "_____ أختي إلى المدرسة.",
+          options: ["يذهب", "تذهب "],
+          correct_answer: 1,
+        },
+      ],
+    },
+    {
+      name: "bahrain",
+      arabic_name: "البحرين",
+      person_name: "",
+      questions: [
+        {
+          question: "الأولاد _____  القطة.",
+          options: ["ساعدن", "ساعدوا"],
+          correct_answer: 1,
+        },
+        {
+          question: "_____ يلعب بالكرة.",
+          options: ["هو", "هي"],
+          correct_answer: 0,
+        },
+      ],
+    },
   ],
 ];

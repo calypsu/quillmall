@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { sendError, gen_random, check_answer } from '../utils';
-import { countries as DefaultCountryList } from '../assets/documents/countries';
+import { countries as TotalCountryList } from '../assets/documents/countries';
 
 export const QuestionsContext = React.createContext();
 
 export default function QuestionsContextProvider({ children }) {
 
+    const [level, setLevel] = useState(null);
+    const [DefaultCountryList, setDefaultCountryList] = useState(TotalCountryList[0]);
     const [countries, setCountries] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [currentCountry, setCurrentCountry] = useState(null);
@@ -13,9 +15,14 @@ export default function QuestionsContextProvider({ children }) {
     const [score, setScore] = useState(0);
 
     const fetchCountries = () => {
-        const data = JSON.parse(JSON.stringify(DefaultCountryList[0]));
+        const data = JSON.parse(JSON.stringify(DefaultCountryList));
         shuffle(data);
         setCountries(data.slice(0, 10));
+    }
+
+    const changeLevel = level => {
+        setLevel(level);
+        setDefaultCountryList(TotalCountryList[level]);
     }
 
     function shuffle(array) {
@@ -46,7 +53,8 @@ export default function QuestionsContextProvider({ children }) {
             // IF THE COUNTRY DOES NOT EXIST IN THE LIST OF REMAINING COUNTRIES
             // THEN IT CREATES A NEW LIST THAT REMOVES ONE COUNTRY AND ADDS THE NEW COUNTRY
             if (country_index == -1) {
-                const excludedCountry = DefaultCountryList[0].find(country => country.name == country_name);
+                const excludedCountry = DefaultCountryList.find(country => country.name == country_name);
+                DefaultCountryList.map(e => console.log(e.name, country_name));
                 remaining_countries = [ ...remaining_countries.slice(0, remaining_countries.length - 1), excludedCountry ];
                 country_index = remaining_countries.length - 1;
             }
@@ -56,7 +64,6 @@ export default function QuestionsContextProvider({ children }) {
         country_index = (country_index == -1) ? 0 : country_index;
         
         const current_country = { ...remaining_countries[country_index] };
-        console.log(current_country);
         const current_question = current_country.questions[gen_random(current_country.questions.length)];
         
         const removed_country = remaining_countries.splice(country_index, 1)[0];
@@ -87,15 +94,21 @@ export default function QuestionsContextProvider({ children }) {
 
     const resetQuestionsContext = () => {
         fetchCountries();
+        setLevel(null);
         setCurrentQuestion(false);
         setCurrentCountry(null);
         setCompleted(false);
         setScore(0);
     }
 
+    useEffect(() => {
+        fetchCountries();
+    }, [DefaultCountryList])
+
     return (
         <QuestionsContext.Provider
             value={{
+                level, changeLevel,
                 currentQuestion, setCurrentQuestion,
                 currentCountry,
                 changeQuestion,
@@ -103,7 +116,7 @@ export default function QuestionsContextProvider({ children }) {
                 score,
                 setNewQuestion,
                 resetQuestionsContext,
-                countries
+                countries,
             }}
         >
             {children}
