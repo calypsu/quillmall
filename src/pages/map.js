@@ -312,15 +312,15 @@ export default function MapPage() {
             
             {/* LEVEL SELECT POPUP */}
             <div className={(level == null ? 'show' : 'hide') + ' level-popup'}>
-                <h2>Select your level:</h2>
+                <h2>حدد فئتك العمرية</h2>
                 <button style={{fontSize: "2rem", padding: "20px 40px", 
                     border: "10px solid #054BC8", 
                     borderRadius: "20px", width: "100%"}}
-                    onClick={() => changeLevel(1)}>Child</button> <br />
+                    onClick={() => changeLevel(1)}>أطفال</button> <br />
                 <button style={{fontSize: "2rem", padding: "20px 40px", 
                     border: "10px solid #054BC8", 
                     borderRadius: "20px", width: "100%"}}
-                    onClick= {() => changeLevel(0)}>Adult</button>
+                    onClick= {() => changeLevel(0)}>كبار</button>
             </div>
         </div>
     )

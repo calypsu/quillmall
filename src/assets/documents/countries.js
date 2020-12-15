@@ -104,14 +104,14 @@ export const countries = [
         },
         {
           question: "نجيب محفوظ هو أول عربي حاز جائزة نوبل في الأدب",
-          options: ["خطاً", "صح"],
-          correct_answer: 1,
+          options: ["خطأ", "صح"],
+          correct_answer: 0,
         },
         {
           question:
             '"تضم ""ثلاثية القاهرة"" لنجيب محفوظ روايات: ""قصر الشوق""، و""بين القصرين""، و""السكَّرية""."',
-          options: ["صح", "خطاً"],
-          correct_answer: 0,
+          options: ["صح", "خطأ"],
+          correct_answer: 1,
         },
       ],
     },
@@ -161,8 +161,8 @@ export const countries = [
         },
         {
           question: "حوار على بوابة الأرض هي أولى روايات عبده خال",
-          options: ["خطاً", "صح"],
-          correct_answer: 1,
+          options: ["خطأ", "صح"],
+          correct_answer: 0,
         },
         {
           question:
@@ -699,7 +699,7 @@ export const countries = [
           correct_answer: 1,
         },
         {
-          question: "_____ كتاب",
+          question: "كتاب _____",
           options: ["هذه ", "هذا"],
           correct_answer: 1,
         },
@@ -711,7 +711,7 @@ export const countries = [
       person_name: "",
       questions: [
         {
-          question: "_____ دراجة",
+          question: "دراجة _____",
           options: ["هذه ", "هذا"],
           correct_answer: 0,
         },
@@ -729,7 +729,7 @@ export const countries = [
       questions: [
         { question: "هل تحب اللعب", options: ["؟", "."], correct_answer: 0 },
         {
-          question: "الولدان _____",
+          question: "_____ الولدان",
           options: ["مؤدبان", "مؤدب"],
           correct_answer: 0,
         },
@@ -741,7 +741,7 @@ export const countries = [
       person_name: "",
       questions: [
         {
-          question: "هاتان _____",
+          question: "_____ هاتان",
           options: ["صديقان", "صديقتان"],
           correct_answer: 1,
         },
@@ -758,12 +758,12 @@ export const countries = [
       person_name: "",
       questions: [
         {
-          question: "هذا معطفي أنا_____",
+          question: "_____ هذا معطفي أنا",
           options: ["أحبة", "أحبه"],
           correct_answer: 1,
         },
         {
-          question: "_____ أختي إلى المدرسة.",
+          question: "أختي إلى المدرسة _____",
           options: ["يذهب", "تذهب "],
           correct_answer: 1,
         },
@@ -780,7 +780,7 @@ export const countries = [
           correct_answer: 1,
         },
         {
-          question: "_____ يلعب بالكرة.",
+          question: "يلعب بالكرة _____",
           options: ["هو", "هي"],
           correct_answer: 0,
         },
