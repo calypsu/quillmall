@@ -13,7 +13,7 @@ export default function QuestionsContextProvider({ children }) {
     const [score, setScore] = useState(0);
 
     const fetchCountries = () => {
-        const data = JSON.parse(JSON.stringify(DefaultCountryList));
+        const data = JSON.parse(JSON.stringify(DefaultCountryList[0]));
         shuffle(data);
         setCountries(data.slice(0, 10));
     }
@@ -46,7 +46,7 @@ export default function QuestionsContextProvider({ children }) {
             // IF THE COUNTRY DOES NOT EXIST IN THE LIST OF REMAINING COUNTRIES
             // THEN IT CREATES A NEW LIST THAT REMOVES ONE COUNTRY AND ADDS THE NEW COUNTRY
             if (country_index == -1) {
-                const excludedCountry = DefaultCountryList.find(country => country.name == country_name);
+                const excludedCountry = DefaultCountryList[0].find(country => country.name == country_name);
                 remaining_countries = [ ...remaining_countries.slice(0, remaining_countries.length - 1), excludedCountry ];
                 country_index = remaining_countries.length - 1;
             }
