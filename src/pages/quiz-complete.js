@@ -7,7 +7,7 @@ import logo from '../assets/images/logo.svg';
 import close from '../assets/images/cancel.svg';
 
 export default function QuizCompletePage() {
-    const { completed, score } = useContext(QuestionsContext);
+    const { completed, score, level } = useContext(QuestionsContext);
 
     const { handleSubmit, errors, register } = useForm();
     const validators = {
@@ -17,6 +17,7 @@ export default function QuizCompletePage() {
     
     const submitForm = values => {
         values.score = score ? score : -1;
+        values.level = level == 0 ? 'Adult' : 'Child';
         fetch('https://hooks.zapier.com/hooks/catch/5078083/oe7f7l9/', {
             method: 'POST',
             body: JSON.stringify(values)
