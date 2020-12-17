@@ -51,7 +51,8 @@ export default function QuestionsContextProvider({ children }) {
             if (country_index == -1) {
                 const excludedCountry = DefaultCountryList.find(country => country.name == country_name);
                 remaining_countries[remaining_countries.length - 1] = excludedCountry;
-                scope_countries[scope_countries - 1] = excludedCountry;
+                scope_countries[scope_countries.length - 1] = excludedCountry;
+                country_index = scope_countries.length - 1;
             }
         }
 
