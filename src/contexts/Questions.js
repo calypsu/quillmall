@@ -20,11 +20,6 @@ export default function QuestionsContextProvider({ children }) {
         setCountries(data.slice(0, 10));
     }
 
-    const changeLevel = level => {
-        setLevel(level);
-        setDefaultCountryList(TotalCountryList[level]);
-    }
-
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
       
@@ -41,7 +36,8 @@ export default function QuestionsContextProvider({ children }) {
       }      
 
     const setNewQuestion = (country_name = null) => {
-        let remaining_countries = countries.filter(country => !country.done);
+        let scope_countries = [...countries];
+        let remaining_countries = scope_countries.filter(country => !country.done);
 
         let country_index = -1;
         if (country_name == null) country_index = gen_random(remaining_countries.length);
@@ -54,9 +50,8 @@ export default function QuestionsContextProvider({ children }) {
             // THEN IT CREATES A NEW LIST THAT REMOVES ONE COUNTRY AND ADDS THE NEW COUNTRY
             if (country_index == -1) {
                 const excludedCountry = DefaultCountryList.find(country => country.name == country_name);
-                DefaultCountryList.map(e => console.log(e.name, country_name));
-                remaining_countries = [ ...remaining_countries.slice(0, remaining_countries.length - 1), excludedCountry ];
-                country_index = remaining_countries.length - 1;
+                remaining_countries[remaining_countries.length - 1] = excludedCountry;
+                scope_countries[scope_countries - 1] = excludedCountry;
             }
         }
 
@@ -69,10 +64,7 @@ export default function QuestionsContextProvider({ children }) {
         const removed_country = remaining_countries.splice(country_index, 1)[0];
         removed_country.done = true;
 
-        setCountries([
-            ...countries.filter(country => country.done),
-            ...remaining_countries
-        ]);
+        setCountries([...scope_countries]);
         setCurrentCountry(current_country);
         setCurrentQuestion(current_question);
     }
@@ -103,12 +95,16 @@ export default function QuestionsContextProvider({ children }) {
 
     useEffect(() => {
         fetchCountries();
-    }, [DefaultCountryList])
+    }, [DefaultCountryList]);
+
+    useEffect(() => {
+        if (level !== null) setDefaultCountryList(TotalCountryList[level])
+    }, [level]);
 
     return (
         <QuestionsContext.Provider
             value={{
-                level, changeLevel,
+                level, setLevel,
                 currentQuestion, setCurrentQuestion,
                 currentCountry,
                 changeQuestion,

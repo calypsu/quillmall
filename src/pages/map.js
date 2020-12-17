@@ -7,7 +7,7 @@ import close from '../assets/images/cancel.svg';
 
 export default function MapPage() {
 
-    const { completed, countries, currentCountry, setNewQuestion, resetQuestionsContext, level, changeLevel } = useContext(QuestionsContext);
+    const { completed, countries, currentCountry, setNewQuestion, resetQuestionsContext, level, setLevel } = useContext(QuestionsContext);
 
     const [started, setStarted] = useState(false);
     const [countryPointers, setCountryPointers] = useState(null);
@@ -316,11 +316,11 @@ export default function MapPage() {
                 <button style={{fontSize: "2rem", padding: "20px 40px", 
                     border: "10px solid #054BC8", 
                     borderRadius: "20px", width: "100%"}}
-                    onClick={() => changeLevel(1)}>أطفال</button> <br />
+                    onClick={() => setLevel(1)}>أطفال</button> <br />
                 <button style={{fontSize: "2rem", padding: "20px 40px", 
                     border: "10px solid #054BC8", 
                     borderRadius: "20px", width: "100%"}}
-                    onClick= {() => changeLevel(0)}>كبار</button>
+                    onClick= {() => setLevel(0)}>كبار</button>
             </div>
         </div>
     )

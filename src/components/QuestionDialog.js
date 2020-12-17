@@ -12,6 +12,7 @@ export default function QuestionDialog(props) {
 
     const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
     const [timer, setTimer] = useState(TIMER_SECONDS);
+    const [questionNumber, setQuestionNumber] = useState(0);
 
     useEffect(() => {
         if (showCorrectAnswer) {
@@ -31,6 +32,10 @@ export default function QuestionDialog(props) {
         }, 1000);
     }, [timer, showCorrectAnswer]);
 
+    useEffect(() => {
+        setQuestionNumber(countries.filter(e => e.done).length);
+    }, [countries]);
+
     if (currentQuestion && show && !completed) {
         let question = currentQuestion.question;
         question = replace_line_breaks(question);
@@ -44,7 +49,7 @@ export default function QuestionDialog(props) {
                 <div className="question">
                     <div className="pv5 tc">
                         <span style={{border: "5px dashed white", borderRadius: "50%", padding: "0px 30px", fontSize: "2.5rem", color: "white"}}>
-                            {countries.filter(q => q.done).length}
+                            {questionNumber}
                         </span>
                         <span className="pl3" style={{fontSize: "2.5rem", color: "white"}}>
                         السؤال
